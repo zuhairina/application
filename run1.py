@@ -1,15 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 17 14:07:02 2019
-
-@author: mw
-"""
-
 import mysql.connector
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from pandas import DataFrame
+
+#from pandas import DataFrame
 
 connection = mysql.connector.connect(host='localhost',
                                          database='twitter',
@@ -45,14 +38,9 @@ df_match = pd.DataFrame({'Topik/Category':['5. Friso Category']*df.shape[0],
                   'Video URL':['-']*df.shape[0],
                   'Sentiment':df['sentiment_value']*df.shape[0],
                   'Media Type':['-']*df.shape[0],
-                  'Mood':df['misc'],#['-']*df.shape[0],
-                  
-                  
-            'label':le.fit_transform(df['sentiment_value']),
-            'alpha':['a']*df.shape[0],
-            'text':df['summary'].replace(r'\n',' ',regex=True)})
+                  'Mood':df['misc']})
 
 
-#export_excel = df.to_excel (r'C:\Users\mw\Documents\application\result.xlsx', index = None, header=True) #Don't forget to add '.xlsx' at the end of the path
+#export_excel = df.to_excel (r'C:\Users\mw\Documents\application\result.xlsx', index = None, header=True) 
 
 
