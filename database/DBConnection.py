@@ -17,4 +17,6 @@ class DBConnection:
                                     user = self.user,
                                     passwd = self.password)
         return self.conn
+
+    #untuk mengoneksikan database ke python
         
