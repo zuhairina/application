@@ -1,17 +1,8 @@
-import mysql.connector
+import DBConnection
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
-
-#from pandas import DataFrame
-
-connection = mysql.connector.connect(host='localhost',
-                                         database='twitter',
-                                         user='root')
-
-le = LabelEncoder()
 
 sql_select_Query = "select * from feeds_twitter_1706"
-df = pd.read_sql(sql_select_Query, connection)
+df = pd.read_sql(sql_select_Query, DBConnection)
 df_match = pd.DataFrame({'Topik/Category':['5. Friso Category']*df.shape[0],
                   'Row ID':df['id'],
                   'Published Date':df['published_date'],
@@ -41,6 +32,4 @@ df_match = pd.DataFrame({'Topik/Category':['5. Friso Category']*df.shape[0],
                   'Mood':df['misc']})
 
 
-#export_excel = df.to_excel (r'application\excel\result.xlsx', index = None, header=True) 
-
-
+export_excel = df.to_excel (r'application\excel\result.xlsx', index = None, header=True)
