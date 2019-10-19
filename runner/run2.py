@@ -1,8 +1,11 @@
 import DBConnection
 import pandas as pd
 
+#query dari database
 sql_select_Query = "select * from feeds_twitter_1706"
 df = pd.read_sql(sql_select_Query, DBConnection)
+
+#mengubah nama kolom sesuai dengan format
 df_match = pd.DataFrame({'Topik/Category':['5. Friso Category']*df.shape[0],
                   'Row ID':df['id'],
                   'Published Date':df['published_date'],
@@ -31,5 +34,5 @@ df_match = pd.DataFrame({'Topik/Category':['5. Friso Category']*df.shape[0],
                   'Media Type':['-']*df.shape[0],
                   'Mood':df['misc']})
 
-
+#export ke file excel
 export_excel = df.to_excel (r'application\excel\result.xlsx', index = None, header=True)
