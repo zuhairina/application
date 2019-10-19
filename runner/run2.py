@@ -35,4 +35,4 @@ df_match = pd.DataFrame({'Topik/Category':['5. Friso Category']*df.shape[0],
                   'Mood':df['misc']})
 
 #export ke file excel
-export_excel = df.to_excel (r'application\excel\result.xlsx', index = None, header=True)
+export_excel = df.to_excel (r'application\result.xlsx', index = None, header=True)
